@@ -9,7 +9,7 @@ def pom_version_tag='avreg_version'
 stage 'Build'
    
 node('CTF') {
-   maven_build("test","test1")
+   com.hp.wpp.cd.pipelines.maven_build("test","test1")
 }
 
 stage 'Create AMI'
