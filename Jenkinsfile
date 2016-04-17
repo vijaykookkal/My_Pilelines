@@ -1,3 +1,7 @@
+import com.hp.wpp.cd.pipelines.mavenBuild
+
+
+
 // Globals
 def mvnHome = "/opt/apache-maven-3.2.5"
 def build_vesion
