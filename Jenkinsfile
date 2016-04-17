@@ -9,7 +9,8 @@ def pom_version_tag='avreg_version'
 stage 'Build'
    
 node('master') {
-  maven_build("test","test1")
+  def mavenBuilder = new com.hp.wpp.cd.pipelines.maven_build()
+  mavenBuilder.maven_build("test","test1")
 }
 
 stage 'Create AMI'
