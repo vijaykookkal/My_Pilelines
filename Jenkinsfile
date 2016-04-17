@@ -25,11 +25,7 @@ stage 'Create AMI'
 
 
 node('master') {
-   echo "$sha1"
+   echo "sha1"
 }
 
 
-def get_version() {
-  def matcher = readFile('pom.xml') =~ '<avreg.version>(.+)</avreg.version>'
-  matcher ? matcher[0][1] : null
-}
