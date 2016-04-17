@@ -17,8 +17,11 @@ stage 'Build'
 node('master') {
  // def mavenBuilder = new com.hp.wpp.cd.pipelines.mavenBuild()
   //mavenBuilder.mavenBuild("test","test1")
+  echo "before new"
   def z = new org.foo.Zot()
+  echo "after new"
 z.checkOutFrom(repo)
+echo "after call"
 }
 
 stage 'Create AMI'
