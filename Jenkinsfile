@@ -1,4 +1,4 @@
-import com.hp.wpp.cd.pipelines.mavenBuild  ;
+//import com.hp.wpp.cd.pipelines.mavenBuild  ;
 
 
 
@@ -13,8 +13,10 @@ def pom_version_tag='avreg_version'
 stage 'Build'
    
 node('master') {
-  def mavenBuilder = new com.hp.wpp.cd.pipelines.mavenBuild()
-  mavenBuilder.mavenBuild("test","test1")
+  //def mavenBuilder = new com.hp.wpp.cd.pipelines.mavenBuild()
+  //mavenBuilder.mavenBuild("test","test1")
+  def z = new org.foo.Zot()
+z.checkOutFrom(repo)
 }
 
 stage 'Create AMI'
