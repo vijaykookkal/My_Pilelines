@@ -1,6 +1,6 @@
 package com.hp.wpp.cd.pipelines
 
-def call(credentialsId,url) {
+def mavenBuild(credentialsId,url) {
     // you can call any valid step functions from your code, just like you can from Pipeline scripts
 
 
