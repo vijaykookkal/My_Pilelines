@@ -8,7 +8,7 @@ def pom_version_tag='avreg_version'
 
 stage 'Build'
    
-node('CTF') {
+node('master') {
    com.hp.wpp.cd.pipelines.maven_build("test","test1")
 }
 
