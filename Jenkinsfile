@@ -22,7 +22,7 @@ node('master') {
   echo "before new"
   def z = new org.foo.Zot()
   echo "after new"
-z.checkOutFrom(${repo})
+z.checkOutFrom("${repo}")
 echo "after call"
 }
 
