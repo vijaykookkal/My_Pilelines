@@ -17,13 +17,13 @@ stage 'Build'
    
 node('master') {
    
- // def mavenBuilder = new com.hp.wpp.cd.pipelines.mavenBuild()
-  //mavenBuilder.mavenBuild("test","test1")
-  echo "before new"
-  def z = new org.foo.Zot()
-  echo "after new"
-z.checkOutFrom("${repo}")
-echo "after call"
+ def mb = new com.hp.wpp.cd.pipelines.mavenBuild()
+ build_vesion = mb.checkOut("$git_credentialsId","$git_url","$pom_version_tag")
+  echo "$build_vesion"
+ // def z = new org.foo.Zot()
+ // echo "after new"
+//z.checkOutFrom("${repo}")
+//echo "after call"
 }
 
 stage 'Create AMI'
