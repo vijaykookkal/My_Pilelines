@@ -21,7 +21,7 @@ stage 'Build'
       build_version = mb.checkOut("$git_credentialsId","$git_url","$pom_version_tag")
       
       echo "$build_version"
-      mb.mvnBuild("$build_version")
+    //  mb.mvnBuild("$build_version")
  // def z = new org.foo.Zot()
  // echo "after new"
 //z.checkOutFrom("${repo}")
