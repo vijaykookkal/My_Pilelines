@@ -19,6 +19,7 @@ stage 'Build'
    
       def mb = new com.hp.wpp.cd.pipelines.mavenBuild()
       build_vesion = mb.checkOut("$git_credentialsId","$git_url","$pom_version_tag")
+      mb.mvnBuild($build_version)
       echo "$build_vesion"
  // def z = new org.foo.Zot()
  // echo "after new"
