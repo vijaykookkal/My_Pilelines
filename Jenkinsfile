@@ -18,15 +18,13 @@ stage 'Build'
    
    node('CTF') {
    
-      def mb = new com.hp.wpp.cd.pipelines.mavenBuild()
-      build_version = mb.checkOut("$git_credentialsId","$git_url","$pom_version_tag")
+      //def mb = new com.hp.wpp.cd.pipelines.mavenBuild()
+      //build_version = mb.checkOut("$git_credentialsId","$git_url","$pom_version_tag")
       
-      echo "$build_version"
-      mb.mvnBuild("${mvnHome}/bin/mvn","$build_version")
- // def z = new org.foo.Zot()
- // echo "after new"
-//z.checkOutFrom("${repo}")
-//echo "after call"
+      //echo "$build_version"
+      //mb.mvnBuild("${mvnHome}/bin/mvn","$build_version")
+      echo $WORKSPACE
+
 }
 
 stage 'Create AMI'
