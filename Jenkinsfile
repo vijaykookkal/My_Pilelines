@@ -37,7 +37,7 @@ stage 'Deploy'
 node('AMIBuilder') {
 
 
- echo  "${env.BUILD_NUMBER}""
+ echo  "${env.BUILD_NUMBER}"
 }
 
 
