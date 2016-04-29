@@ -30,11 +30,11 @@ stage 'Build'
 
 stage 'Deploy' 
 
-echo "env.$WORKSPACE"
+echo "${env.WORKSPACE}"
 
 node('AMIBuilder') {
 	
-	echo "${env.$WORKSPACE}"
+	echo "${env.WORKSPACE}"
 	
 }
 
