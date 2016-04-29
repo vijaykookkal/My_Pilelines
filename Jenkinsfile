@@ -45,13 +45,18 @@ stage 'Deploy'
 
 
 node('AMIBuilder') {
-    workspace = pwd()
-    git credentialsId: "$cd_git_credentialsId", url: "$cd_git_url"
+    def workspace = pwd()
+    git credentialsId: "$credentialsId", url: "$git_url"
+
 
 
  echo  "${env.BUILD_NUMBER}"
 }
 
-
+def deploy_service(credentialsId,git_url,artifact_url) {
+    def service_artifact_url="http://ec2-52-1-56-86.compute-1.amazonaws.com/nexus/service/local/repositories/morpheussnapshots/content/com/hp/wpp/avreg/avreg-restapp/${pom_v}/avreg-restapp-${pom_v}.war" 
+    
+    def
+}
 
 
