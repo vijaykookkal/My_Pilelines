@@ -33,6 +33,8 @@ stage 'Deploy'
 echo "${env.WORKSPACE}"
 
 node('AMIBuilder') {
+	def workspace = env.WORKSPACE
+	echo $workspace
 	
 	echo "${env.WORKSPACE}"
 	
