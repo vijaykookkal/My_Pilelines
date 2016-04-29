@@ -104,7 +104,7 @@ node('AMIBuilder') {
 
 }
 
-def deploy_service(workspace,cd_deploy_input_json,deploy_input_json,) {
+def deploy_service(workspace,cd_deploy_input_json,deploy_input_json) {
     new File("${workspace}"/cd_deploy_input.json).write(cd_deploy_input_json)
     new File("${workspace}"/deploy_input.json).write(deploy_input_json)
     sh "cat ${workspace}/deploy_input.json"
