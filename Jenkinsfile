@@ -35,32 +35,7 @@ stage 'Deploy'
 
 
 node('AMIBuilder') {
-   echo "I am a "+getClass().getName()
 
-   echo "PARAMETERS"
-   echo "=========="
-   echo getBinding().getVariables().getClass().getName()
-   def myvariables = getBinding().getVariables()
-   for (v in myvariables) {
-       echo "${v} " + myvariables.get(v)
-   }
-   echo STRING_PARAM1.getClass().getName()
-
-   echo "METHODS"
-   echo "======="
-   def methods = getMetaClass().getMethods()
-
-   for (method in methods) {
-       echo method.getName()    
-   } 
-
-   echo "PROPERTIES"
-   echo "=========="
-   properties.each{ k, v -> 
-       println "${k} ${v}" 
-   }
-   echo properties
-   echo properties["class"].getName()
 
    echo "ENVIRONMENT VARIABLES"
    echo "======================"
