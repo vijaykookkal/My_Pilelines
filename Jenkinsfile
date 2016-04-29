@@ -98,7 +98,7 @@ stage 'Deploy'
 node('AMIBuilder') {
     def workspace = pwd()
     echo "Workspace is ${workspace}"
-    git credentialsId: "$credentialsId", url: "$git_url"
+    git credentialsId: "$cd_git_credentialsId", url: "$cd_git_url"
     deploy_service(service_cd_deploy_input_json,service_deploy_input_json)
 
 
