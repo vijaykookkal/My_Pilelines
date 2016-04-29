@@ -37,13 +37,7 @@ stage 'Deploy'
 node('AMIBuilder') {
 
 
-   echo "ENVIRONMENT VARIABLES"
-   echo "======================"
-   echo "env is " + env.getClass().getName()
-   def envvars = env.getEnvironment()
-   envvars.each{ k, v ->
-        println "${k} ${v}"
-   }
+ echo  ${env.BUILD_NUMBER}
 }
 
 
