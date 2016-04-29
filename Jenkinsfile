@@ -15,7 +15,7 @@ def service_git_url='https://github.com/WPPg2/avatar-reg.git'
 def service_git_credentialsId='7a9d9c98-fec1-4a3c-82ff-53295d9d5c9b'
 def service_pom_version_tag='avreg.version'
 def service_name="avreg"
-def service_version="s.v"
+def service_version="1.0.13"
 def service_cookbook_version="1.0.13"
 
 
@@ -116,12 +116,16 @@ node('AMIBuilder') {
 
 def deploy_service(workspace,cd_deploy_input_json,deploy_input_json) {
    // new File("${workspace}/cd_deploy_input.json").write(cd_deploy_input_json)
-   // new File("${workspace}/deploy_input.json").write(deploy_input_json)
-   //new File("${workspace}/deploy_input.json")
+
    print "$cd_deploy_input_json"
    sh "echo $cd_deploy_input_json > ${workspace}/deploy_input.json"
    sh "cat ${workspace}/deploy_input.json"
-    
+   
+
+   sh "sudo chef-client -z -j /home/ec2-user/avreg/deploy_avreg.json -r 'recipe[ec2::deployService]' --log_level info"
+
+   sh "cat /home/ec2-user/avreg.log.ipaddr"
+
 }
 
 
