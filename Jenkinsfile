@@ -89,8 +89,18 @@ stage 'Build'
 
 }
 
+node('AMIBuilder') {
+	
+	print "With AMI builder"
+}
+
 stage 'Deploy' 
 
+
+node('AMIBuilder') {
+	
+	print "With AMI builder stage Deploy"
+}
 
 
 
@@ -98,8 +108,8 @@ stage 'Deploy'
 node('AMIBuilder') {
     def workspace = pwd()
     echo "Workspace is ${workspace}"
-    git credentialsId: "$cd_git_credentialsId", url: "$cd_git_url"
-    deploy_service(workspace,service_cd_deploy_input_json,service_deploy_input_json)
+   // git credentialsId: "$cd_git_credentialsId", url: "$cd_git_url"
+   // deploy_service(workspace,service_cd_deploy_input_json,service_deploy_input_json)
 
 
 }
