@@ -207,7 +207,7 @@ def json_input(node_name,src_file,dest_file)  {
    node('CTF') {
       writeFile file: 'dest_file', text: '"sdf"'
    }
- }   
+  
 }
 
 
