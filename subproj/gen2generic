@@ -79,20 +79,24 @@ def service_cd_deploy_input_json = """
 
 
 
-stage 'Build'
 
+stage 'Check'
 echo "Stage Buildddddddddddd "
 input 'Ready to go?'
 parallel(firstTask: {
      node('CTF') {
-       // Do some stuff
+       // Do some stuff]
+       echo "First parallel task"
     }
 }, secondTask: {
     node('AMIBuilder') {
         // Do some other stuff
+        echo "Second parallel task"
     }
 })
    
+   
+stage 'Build'
    node('CTF') {
    
    
