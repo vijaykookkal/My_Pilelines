@@ -188,7 +188,7 @@ def json_input(node_name,src_file,dest_file)  {
    slurped.service.artifact_url="sdfskkkkddddd"
    def builder = new JsonBuilder(slurped)
 
-   def outp = builder.toPrettyString())
+   def outp = builder.toPrettyString()
    
    
    slurper = null
