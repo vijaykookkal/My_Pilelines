@@ -182,7 +182,7 @@ def json_input(node_name,src_file,dest_file)  {
 
 File f = new File(src_file)
 def jsonText = f.getText()
-
+f=null 
  node('CTF') {
    sh "hostname"
    def slurper = new JsonSlurper()
@@ -206,6 +206,7 @@ def jsonText = f.getText()
    node_name=null
    src_file=null
    dest_file=null
+   jsonText=null
  }   
 }
 
