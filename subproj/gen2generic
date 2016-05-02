@@ -193,7 +193,7 @@ def jsonText = f.getText()
    File g = new File(dest_file)
    print "$dest_file"
    //File g = new File('/tmp/dest_file')
-   //sh "hostname"
+   sh "hostname"
    g.createNewFile()
    //sh "hostname"
    //print builder.toPrettyString()
