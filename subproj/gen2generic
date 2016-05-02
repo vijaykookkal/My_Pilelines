@@ -83,12 +83,14 @@ def service_cd_deploy_input_json = """
 stage 'Check'
 echo "Stage check"
 
-Properties properties = new Properties()
-File propertiesFile = new File('/tmp/var.groovy')
-propertiesFile.withInputStream {
-    properties.load(it)
-}
-print properties.vara
+
+Properties props = new Properties()
+File propsFile = new File('/tmp/var.groovy')
+props.load(propsFile.newDataInputStream())
+
+
+println props.getProperty('vara')
+
 
 
 
