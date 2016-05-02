@@ -84,12 +84,13 @@ stage 'Build'
    node('CTF') {
    
    
-     def tob = new lib.testlib()
-     tob.testfun()
-      //def mb = new com.hp.wpp.cd.pipelines.mavenBuild()
-      //service_version = mb.checkOut("$service_git_credentialsId","$service_git_url","$service_pom_version_tag")
-      
-      //echo "$build_version"
+     //def tob = new lib.testlib()
+     //tob.testfun()
+     
+      def mb = new com.hp.wpp.cd.pipelines.mavenBuild()
+     service_version = mb.checkOut("$service_git_credentialsId","$service_git_url","$service_pom_version_tag")
+    echo "$service_version"
+    
       //mb.mvnBuild("${mvnHome}/bin/mvn","$build_version")
       echo "Build Stage"
 
