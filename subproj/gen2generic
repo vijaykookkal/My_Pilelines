@@ -196,14 +196,10 @@ def json_input(node_name,src_file,dest_file)  {
    builder = null
    f=null
    g=null
-   node_name=null
-   src_file=null
-   dest_file=null
-   jsonText=null
    
    node(node_name) {
       writeFile file: dest_file, text: output
-      output = null
+      
    }
   
 }
