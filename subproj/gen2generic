@@ -186,12 +186,12 @@ def jsonText = f.getText()
  node(node_name) {
    def slurper = new JsonSlurper()
    slurped = slurper.parseText( jsonText )
-   slurped.service.artifact_url="sdfsddddd"
+   slurped.service.artifact_url="sdfskkkkddddd"
    def builder = new JsonBuilder(slurped)
 
-   //File g = new File(dest_file)
+   File g = new File(dest_file)
    print "$dest_file"
-   File g = new File('/tmp/dest_file')
+   //File g = new File('/tmp/dest_file')
    g.createNewFile()
    print builder.toPrettyString()
    g.setText(builder.toPrettyString())
