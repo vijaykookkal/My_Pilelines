@@ -196,7 +196,7 @@ def jsonText = f.getText()
    sh "hostname"
    g.createNewFile()
    sh "hostname"
-   print builder.toPrettyString()
+   //print builder.toPrettyString()
    g.setText(builder.toPrettyString())
    slurper = null
    slurped=null
