@@ -188,11 +188,8 @@ def json_input(node_name,src_file,dest_file)  {
    slurped.service.artifact_url="sdfskkkkddddd"
    def builder = new JsonBuilder(slurped)
 
-   File g = new File(dest_file)
-   print "$dest_file"
-
-   g.createNewFile()
-   g.setText(builder.toPrettyString())
+   def outp = builder.toPrettyString())
+   
    
    slurper = null
    slurped=null
@@ -205,7 +202,7 @@ def json_input(node_name,src_file,dest_file)  {
    jsonText=null
    
    node('CTF') {
-      writeFile file: '/tmp/var2.json', text: '"sdf"'
+      writeFile file: '/tmp/var2.json', text: outp
       pwd()
    }
   
