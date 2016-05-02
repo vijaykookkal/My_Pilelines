@@ -99,7 +99,7 @@ slurped.service.artifact_url="sdfsddddd"
 def builder = new JsonBuilder(slurped)
 
 g.createNewFile()
-g.setText(slurper.toPrettyString())
+g.setText(builder.toPrettyString())
 json = null
 slurper = null
 f=null
