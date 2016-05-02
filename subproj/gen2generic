@@ -102,6 +102,7 @@ g.createNewFile()
 g.setText(builder.toPrettyString())
 json = null
 slurper = null
+builder = null
 f=null
 g=null
 
