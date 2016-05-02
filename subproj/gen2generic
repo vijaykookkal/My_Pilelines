@@ -159,7 +159,7 @@ node('AMIBuilder') {
     def workspace = pwd()
     echo "Workspace is ${workspace}"
    // git credentialsId: "$cd_git_credentialsId", url: "$cd_git_url"
-    deploy_service(workspace,service_cd_deploy_input_json,service_deploy_input_json)
+   // deploy_service(workspace,service_cd_deploy_input_json,service_deploy_input_json)
 
 
 }
@@ -205,7 +205,8 @@ def json_input(node_name,src_file,dest_file)  {
    jsonText=null
    
    node('CTF') {
-      writeFile file: 'dest_file', text: '"sdf"'
+      writeFile file: '/tmp/var2.json', text: '"sdf"'
+      pwd()
    }
   
 }
