@@ -88,7 +88,7 @@ File propertiesFile = new File('/tmp/var.groovy')
 propertiesFile.withInputStream {
     properties.load(it)
 }
-properties.vara
+print properties.vara
 
 
 
