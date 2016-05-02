@@ -202,7 +202,7 @@ def json_input(node_name,src_file,dest_file)  {
    jsonText=null
    
    node(node_name) {
-      writeFile file: dest_file', text: output
+      writeFile file: dest_file, text: output
       output = null
    }
   
