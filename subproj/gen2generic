@@ -82,6 +82,7 @@ def service_cd_deploy_input_json = """
 stage 'Build'
 
 echo "Stage Buildddddddddddd "
+input 'Ready to go?'
    
    node('CTF') {
    
