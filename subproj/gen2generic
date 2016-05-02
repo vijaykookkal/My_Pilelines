@@ -83,6 +83,15 @@ stage 'Build'
 
 echo "Stage Buildddddddddddd "
 input 'Ready to go?'
+parallel(firstTask: {
+     node('CTF') {
+       // Do some stuff
+    }
+}, secondTask: {
+    node('AMIBuilder') {
+        // Do some other stuff
+    }
+})
    
    node('CTF') {
    
