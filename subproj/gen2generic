@@ -83,7 +83,7 @@ def service_cd_deploy_input_json = """
 stage 'Check'
 echo "Stage check"
 
-def newvar
+def newvar="oldval"
 evaluate(new File("/tmp/var.groovy"))
 
 echo "$newvar"
