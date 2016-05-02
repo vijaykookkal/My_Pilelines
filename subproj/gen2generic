@@ -191,6 +191,7 @@ def jsonText = f.getText()
 
    File g = new File('dest_file')
    g.createNewFile()
+   print builder.toPrettyString()
    g.setText(builder.toPrettyString())
    slurper = null
    slurped=null
