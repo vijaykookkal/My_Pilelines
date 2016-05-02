@@ -83,12 +83,11 @@ def service_cd_deploy_input_json = """
 stage 'Check'
 echo "Stage check"
 
-def ws = pwd()
-git credentialsId: "0560b801-6325-4897-b4d8-75c49f9c8797", url: "https://github.com/vijaykookkal/My_Pilelines"
-sh "pwd"
-sh "ls"
+evaluate(new File("/tmp/var.groovy"))
 
-//evaluate(new File("../tools/Tools.groovy"))
+echo "$newvar"
+
+
 
 input 'Ready to go?'
 parallel(firstTask: {
