@@ -83,10 +83,12 @@ def service_cd_deploy_input_json = """
 stage 'Check'
 echo "Stage check"
 
-def newvar="oldval"
-evaluate(new File("/tmp/var.groovy"))
-
-echo "$newvar"
+Properties properties = new Properties()
+File propertiesFile = new File('/tmp/var.groovy')
+propertiesFile.withInputStream {
+    properties.load(it)
+}
+properties.vara
 
 
 
