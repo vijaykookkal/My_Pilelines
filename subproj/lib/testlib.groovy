@@ -1,4 +1,4 @@
-package lib.testlib ;
+package lib ;
 def testfun()  {
 echo "This is inside testfun"
 }
