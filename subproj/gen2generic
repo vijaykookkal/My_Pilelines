@@ -203,6 +203,9 @@ def jsonText = f.getText()
    builder = null
    f=null
    g=null
+   node_name=null
+   src_file=null
+   dest_file=null
  }   
 }
 
