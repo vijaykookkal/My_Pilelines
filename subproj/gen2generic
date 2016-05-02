@@ -183,7 +183,7 @@ def json_input(node_name,src_file,dest_file)  {
 File f = new File(src_file)
 def jsonText = f.getText()
 
- node(node_name) {
+ node('CTF') {
    def slurper = new JsonSlurper()
    slurped = slurper.parseText( jsonText )
    slurped.service.artifact_url="sdfskkkkddddd"
