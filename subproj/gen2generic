@@ -89,7 +89,7 @@ echo "Stage check"
 //props.load(propsFile.newDataInputStream())
 //println props.getProperty('vara')
 
-File f = new File('/tmp/var.json')
+/*File f = new File('/tmp/var.json')
 File g = new File('/tmp/var2.json')
 
 def slurper = new JsonSlurper()
@@ -104,7 +104,9 @@ slurper = null
 slurped=null
 builder = null
 f=null
-g=null
+g=null*/
+
+json_input('CTF','/tmp/var.json','/tmp/var2.json')
 
 
 input 'Ready to go?'
@@ -175,4 +177,29 @@ def deploy_service(workspace,cd_deploy_input_json,deploy_input_json) {
    sh "cat /home/ec2-user/avreg.log.ipaddr"
 
 }
+
+def json_input(node_name,src_file,dest_file)  {
+
+File f = new File(src_file)
+def jsonText = f.getText()
+
+ node(node_name) {
+   def slurper = new JsonSlurper()
+   slurped = slurper.parseText( jsonText )
+   slurped.service.artifact_url="sdfsddddd"
+   def builder = new JsonBuilder(slurped)
+
+   File g = new File('dest_file')
+   g.createNewFile()
+   g.setText(builder.toPrettyString())
+   slurper = null
+   slurped=null
+   builder = null
+   f=null
+   g=null
+ }   
+}
+
+
+
 
