@@ -1,6 +1,6 @@
-//import com.hp.wpp.cd.pipelines.mavenBuild  ;
-import org.foo.Zot ;
 
+import groovy.json.JsonBuilder
+import groovy.json.JsonSlurper
 
 
 // Globals
@@ -84,15 +84,20 @@ stage 'Check'
 echo "Stage check"
 
 
-Properties props = new Properties()
-File propsFile = new File('/tmp/var.groovy')
-props.load(propsFile.newDataInputStream())
+//Properties props = new Properties()
+//File propsFile = new File('/tmp/var.groovy')
+//props.load(propsFile.newDataInputStream())
+//println props.getProperty('vara')
 
+File f = new File('/tmp/var.json')
+File g = new File('/tmp/var2.json')
 
-println props.getProperty('vara')
-println props.getProperty(service_deploy_input_json')
-
-
+def slurper = new JsonSlurper()
+def jsonText = f.getText()
+json = slurper.parseText( jsonText )
+json.content.service.artifact_url="sdfsddddd"
+g.createNewFile()
+g.setText(json.toString())
 
 
 input 'Ready to go?'
