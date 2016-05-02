@@ -95,7 +95,7 @@ File g = new File('/tmp/var2.json')
 def slurper = new JsonSlurper()
 def jsonText = f.getText()
 json = slurper.parseText( jsonText )
-json.content.service.artifact_url="sdfsddddd"
+json.service.artifact_url="sdfsddddd"
 g.createNewFile()
 g.setText(json.toString())
 
