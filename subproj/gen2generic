@@ -184,6 +184,7 @@ File f = new File(src_file)
 def jsonText = f.getText()
 
  node('CTF') {
+   sh "hostname"
    def slurper = new JsonSlurper()
    slurped = slurper.parseText( jsonText )
    slurped.service.artifact_url="sdfskkkkddddd"
