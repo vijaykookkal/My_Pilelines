@@ -96,9 +96,10 @@ def slurper = new JsonSlurper()
 def jsonText = f.getText()
 json = slurper.parseText( jsonText )
 json.service.artifact_url="sdfsddddd"
+
 g.createNewFile()
 g.setText(json.toString())
-
+json = null
 
 input 'Ready to go?'
 parallel(firstTask: {
