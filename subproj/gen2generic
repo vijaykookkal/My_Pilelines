@@ -100,8 +100,8 @@ def builder = new JsonBuilder(slurped)
 
 g.createNewFile()
 g.setText(builder.toPrettyString())
-json = null
 slurper = null
+slurped=null
 builder = null
 f=null
 g=null
