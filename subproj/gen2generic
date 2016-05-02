@@ -94,11 +94,12 @@ File g = new File('/tmp/var2.json')
 
 def slurper = new JsonSlurper()
 def jsonText = f.getText()
-json = slurper.parseText( jsonText )
-json.service.artifact_url="sdfsddddd"
+slurped = slurper.parseText( jsonText )
+slurped.service.artifact_url="sdfsddddd"
+def builder = new JsonBuilder(slurped)
 
 g.createNewFile()
-g.setText(json.toString())
+g.setText(slurper.toPrettyString())
 json = null
 slurper = null
 f=null
