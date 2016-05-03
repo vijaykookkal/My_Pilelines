@@ -18,7 +18,7 @@ def service_name="avreg"
 def service_version="1.0.13"
 def service_cookbook_version="1.0.13"
 def service_deploy_input_files_folder=/home/kookalko/pipeline/services/avreg
-def service_cd_deploy_input_file="/home/kookalko/pipeline/services/avreg/service_cd_deploy_input.json"
+
 
 
 def cd_git_url='https://github.com/WPPg2/DevOps-Deployment.git'
@@ -70,10 +70,10 @@ stage 'Deploy'
    deploy_service('AMIBuilder',service_deploy_input_files_folder)
    
 
-def deploy_service(workspace,cd_deploy_input_json,deploy_input_json) {
+def deploy_service(slave,files_folder) {
    // new File("${workspace}/cd_deploy_input.json").write(cd_deploy_input_json)
    
-
+/*
    print "$cd_deploy_input_json"
    sh "echo $cd_deploy_input_json > ${workspace}/deploy_input.json"
    sh "cat ${workspace}/deploy_input.json"
@@ -81,14 +81,19 @@ def deploy_service(workspace,cd_deploy_input_json,deploy_input_json) {
 
    sh "sudo chef-client -z -j /home/ec2-user/avreg/deploy_avreg.json -r 'recipe[ec2::deployService]' --log_level info"
 
-   sh "cat /home/ec2-user/avreg.log.ipaddr"
+   sh "cat /home/ec2-user/avreg.log.ipaddr" */
 
 }
 
 def copy_files_to_node(node_name,files_folder)  {
 
-   File f = new File(src_file)
-   def jsonText = f.getText()
+     FileCollection fc = files { file(files_folder).listFiles() }
+     fc.each {
+          print "Proguard file located and processed: " + it
+     }
+/*
+     File f = new File(src_file)
+      def jsonText = f.getText()
 
    def slurper = new JsonSlurper()
    slurped = slurper.parseText( jsonText )
@@ -108,7 +113,7 @@ def copy_files_to_node(node_name,files_folder)  {
       writeFile file: dest_file, text: output
       
    }
-  
+  */
 }
 
 
