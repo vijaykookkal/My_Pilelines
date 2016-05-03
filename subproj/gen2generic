@@ -93,7 +93,7 @@ def copy_files_to_node(node_name,folder)  {
      files = basedir.listFiles()
 
      for (currentFile in files) { 
-           print currentFile.name
+           print currentFile.path
      }
      
      for (currentFile in files) { 
