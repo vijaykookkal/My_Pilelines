@@ -114,7 +114,7 @@ def copy_files_to_node(node_name,folder)  {
           currentFile=null
    
           node(node_name) {
-               writeFile file: '/tmp', text: output
+               writeFile file: '/tmp/test.json', text: output
       
           }
           basedir=null
