@@ -66,7 +66,7 @@ stage 'Build'
    }
 
 stage 'Deploy'
-   copy_files_to_node('AMIBuilder',service_deploy_input_files_folder)
+   copy_files_to_node('CTF',service_deploy_input_files_folder)
    deploy_service('AMIBuilder',service_deploy_input_files_folder)
    
 
