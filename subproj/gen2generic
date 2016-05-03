@@ -17,7 +17,7 @@ def service_pom_version_tag='avreg.version'
 def service_name="avreg"
 def service_version="1.0.13"
 def service_cookbook_version="1.0.13"
-def service_deploy_input_files_folder=/home/kookalko/pipeline/services/avreg
+def service_deploy_input_files_folder="/home/kookalko/pipeline/services/avreg"
 
 
 
