@@ -113,11 +113,11 @@ def copy_files_to_node(node_name,folder)  {
           g=null
    
           node(node_name) {
-               writeFile file: dest_file, text: output
+               writeFile file: '/tmp', text: output
       
           }
      }
-  */
+  
 }
 
 
