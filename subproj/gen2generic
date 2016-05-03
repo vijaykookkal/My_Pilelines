@@ -124,10 +124,11 @@ def copy_files_to_node(node_name,folder)  {
      currentFile=null
      
          s = ["a", "b"]
-         for (strn in s)
+         for (strn in s)  {
           node(node_name,strn) {
                writeFile file: '/tmp/test.json', text: strn
       
+          }
           }
 }
 
