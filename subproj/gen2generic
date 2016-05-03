@@ -1,15 +1,9 @@
-
 import groovy.json.JsonBuilder
 import groovy.json.JsonSlurper
 
 
 // Globals
-def mvnHome = "/opt/apache-maven-3.2.5"
-def build_version
-def sha1
 
-
-def repo="sdf"
 
 def service_git_url='https://github.com/WPPg2/avatar-reg.git'
 def service_git_credentialsId='7a9d9c98-fec1-4a3c-82ff-53295d9d5c9b'
@@ -20,59 +14,39 @@ def service_cookbook_version="1.0.13"
 def service_deploy_input_files_folder="/home/kookalko/pipeline/services/avreg"
 
 
-
 def cd_git_url='https://github.com/WPPg2/DevOps-Deployment.git'
 def cd_git_credentialsId='7a9d9c98-fec1-4a3c-82ff-53295d9d5c9b'
-def commit_id="cmtid"
+
+def lc = new com.hp.wpp.cd.pipelines.libcommon()
 
 
-
-stage 'Check'
-echo "Stage check"
-
-
-//Properties props = new Properties()
-//File propsFile = new File('/tmp/var.groovy')
-//props.load(propsFile.newDataInputStream())
-//println props.getProperty('vara')
-
-
-
-
-
-
-parallel(firstTask: {
-     node('CTF') {
-       // Do some stuff]
-       echo "First parallel task"
-    }
-}, secondTask: {
-    node('AMIBuilder') {
-        // Do some other stuff
-        echo "Second parallel task"
-    }
-})
-   
-   
 stage 'Build'
-   node('CTF') {
-   
-       def mb = new com.hp.wpp.cd.pipelines.mavenBuild()
-       service_version = mb.checkOut("$service_git_credentialsId","$service_git_url","$service_pom_version_tag")
-       echo "$service_version"
-    
-       //mb.mvnBuild("${mvnHome}/bin/mvn","$build_version")
-       echo "Build Stage"
-   }
+     node('CTF') {
+          service_version = lc.checkOut("$service_git_credentialsId","$service_git_url","$service_pom_version_tag")
+          echo "$service_version"
+          lc.mvnBuild("${mvnHome}/bin/mvn","$build_version")
+     }
 
 stage 'Deploy'
-     copy_files_to_node_workspace('CTF',service_deploy_input_files_folder)
+     lc.copy_files_to_node_workspace('CTF',service_deploy_input_files_folder)
+     
      node(AMIBuilder) {
-          deploy_service('AMIBuilder',service_deploy_input_files_folder)
+          lc.deploy_service('AMIBuilder',service_deploy_input_files_folder)
      }
 
 
 
+
+
+
+
+
+
+
+
+
+
+/*
 def deploy_service(slave,files_folder) {
 
    sh "sudo chef-client -z -j /home/ec2-user/avreg/deploy_avreg.json -r 'recipe[ec2::deployService]' --log_level info"
@@ -123,5 +97,33 @@ def copy_files_to_node_workspace(node_name,folder)  {
 }
 
 
+
+
+stage 'Check'
+echo "Stage check"
+
+
+//Properties props = new Properties()
+//File propsFile = new File('/tmp/var.groovy')
+//props.load(propsFile.newDataInputStream())
+//println props.getProperty('vara')
+
+
+
+
+
+
+parallel(firstTask: {
+     node('CTF') {
+       // Do some stuff]
+       echo "First parallel task"
+    }
+}, secondTask: {
+    node('AMIBuilder') {
+        // Do some other stuff
+        echo "Second parallel task"
+    }
+})
+*/
 
 
