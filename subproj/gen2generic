@@ -127,13 +127,15 @@ def copy_files_to_node(node_name,folder)  {
      def list1 = [ "/tmp/test1", "/tmp/test2" ]
      def list2 = [ "aa" , "bb" ]
 
-
+     n=0
      for (filename in list1) { 
-
+          
           node(node_name) {
-               writeFile file: filename, text: list2[1]
+          
+               writeFile file: filename, text: list2[n]
       
           }
+          n++ ;
      }
 }
 
