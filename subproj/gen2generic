@@ -92,16 +92,19 @@ def copy_files_to_node(node_name,folder)  {
 
      files = basedir.listFiles()
      fileNames= []
+     filePaths = []
     
 
      for (currentFile in files) { 
-          fileNames.push(currentFile.path)
+          filePaths.push(currentFile.path)
+          fileNames.push(currentFile.name)
      }
      
                      
-     for (filename in fileNames) { 
-          File f = new File(filename)
-          def textContent = f.getText()
+     for (filePath in filePaths) { 
+          File f = new File(filePath)
+          def fileContent = f.getText()
+          def fileName=f.name
           f=null
 
      /*     def slurper = new JsonSlurper()
@@ -114,7 +117,7 @@ def copy_files_to_node(node_name,folder)  {
           currentFile=null
    
           node(node_name) {
-               writeFile file: filename, text: textContent
+               writeFile file: fileName, text: fileContent
           }
      }
 }
