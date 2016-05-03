@@ -92,9 +92,9 @@ def copy_files_to_node(node_name,folder)  {
 
      files = basedir.listFiles()
 
-     for (currentFile in files) { 
+    /* for (currentFile in files) { 
            print currentFile.path
-     }
+     } */
      
      for (currentFile in files) { 
           println "  Copying $currentFile"                
@@ -116,15 +116,19 @@ def copy_files_to_node(node_name,folder)  {
           builder = null
           currentFile=null
    
-       /*   node(node_name) {
-               writeFile file: '/tmp/test.json', text: output
-      
-          }*/
+
 
      }
      basedir=null
      files=null
      currentFile=null
+     
+         s = ["a", "b"]
+         for (strn in s)
+          node(node_name,strn) {
+               writeFile file: '/tmp/test.json', text: strn
+      
+          }
 }
 
 
