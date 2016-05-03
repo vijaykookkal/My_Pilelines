@@ -110,8 +110,6 @@ def copy_files_to_node(node_name,folder)  {
           slurper = null
           slurped=null
           builder = null
-          f=null
-          g=null
           currentFile=null
    
           node(node_name) {
@@ -122,6 +120,7 @@ def copy_files_to_node(node_name,folder)  {
      }
      basedir=null
      files=null
+     currentFile=null
 }
 
 
