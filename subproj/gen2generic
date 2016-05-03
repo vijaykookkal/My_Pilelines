@@ -23,15 +23,7 @@ def cd_node_deploy="AMIBuilder"
 
 def lc = new com.hp.wpp.cd.pipelines.libcommon()
 
-def iAmHere() {
-	[29.20090, 12.90391]
-}
 
-def (coordX, coordY) = iAmHere()
-
-assert coordX == 29.20090
-
-assert coordY == 12.90391
 
  
 
