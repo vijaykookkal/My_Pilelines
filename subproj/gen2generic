@@ -123,17 +123,15 @@ def copy_files_to_node(node_name,folder)  {
      files=null
      currentFile=null
      
-     def map = [
-        "/tmp/test.json"  : "aa",
-        "/tmp/test2.json"  : "bb",
-     ]
+
+     def list1 = [ "/tmp/test1", "/tmp/test2" ]
+     def list2 = [ "aa" , "bb" ]
 
 
-     map.each { entry ->
-          println "Name: $entry.key Age: $entry.value"
+     for (filename in list1) { 
 
           node(node_name) {
-               writeFile file: $entry.key, text: $entry.value
+               writeFile file: filename, text: list2[1]
       
           }
      }
