@@ -86,37 +86,37 @@ def deploy_service(slave,files_folder) {
 }
 
 def copy_files_to_node(node_name,folder)  {
+     
+     def basedir = new File(folder)
 
-def basedir = new File(folder)
 
-// result files of the current run
-files = basedir.listFiles()
+     files = basedir.listFiles()
+     
+     for (currentFile in files) { 
+          println "  Copying $currentFile"                
 
-for (currentFile in files) { 
-        println "  processing $currentFile"                
-}
-/*
-     File f = new File(src_file)
-      def jsonText = f.getText()
+          File f = new File($currentFile)
+          def jsonText = f.getText()
 
-   def slurper = new JsonSlurper()
-   slurped = slurper.parseText( jsonText )
-   slurped.service.artifact_url="sdfskkkkddddd"
-   def builder = new JsonBuilder(slurped)
+          def slurper = new JsonSlurper()
+          slurped = slurper.parseText( jsonText )
+          slurped.service.artifact_url="sdfskkkkddddd"
+          def builder = new JsonBuilder(slurped)
 
-   def output = builder.toPrettyString()
+          def output = builder.toPrettyString()
    
    
-   slurper = null
-   slurped=null
-   builder = null
-   f=null
-   g=null
+          slurper = null
+          slurped=null
+          builder = null
+          f=null
+          g=null
    
-   node(node_name) {
-      writeFile file: dest_file, text: output
+          node(node_name) {
+               writeFile file: dest_file, text: output
       
-   }
+          }
+     }
   */
 }
 
