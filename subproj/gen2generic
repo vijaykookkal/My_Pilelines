@@ -105,7 +105,8 @@ def copy_files_to_node(node_name,folder)  {
 
           def output = builder.toPrettyString()
    
-   
+          print output
+          
           slurper = null
           slurped=null
           builder = null
@@ -117,10 +118,10 @@ def copy_files_to_node(node_name,folder)  {
                writeFile file: '/tmp/test.json', text: output
       
           }
-          basedir=null
-          files=null
+
      }
-  
+     basedir=null
+     files=null
 }
 
 
