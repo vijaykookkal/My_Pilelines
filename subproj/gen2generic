@@ -91,51 +91,35 @@ def copy_files_to_node(node_name,folder)  {
 
 
      files = basedir.listFiles()
+     fileNames= []
+    
 
-    /* for (currentFile in files) { 
-           print currentFile.path
-     } */
-     
      for (currentFile in files) { 
-          println "  Copying $currentFile"                
+          fileNames.push(currentFile.path)
+     }
+     
+                     
+     for (filename in fileNames) { 
+          File f = new File(filename)
+          def textContent = f.getText()
+          f=null
 
-          //File f = new File(currentFile)
-          def jsonText = currentFile.getText()
-
-          def slurper = new JsonSlurper()
+     /*     def slurper = new JsonSlurper()
           slurped = slurper.parseText( jsonText )
           slurped.service.artifact_url="sdfskkkkddddd"
-          def builder = new JsonBuilder(slurped)
+          def builder = new JsonBuilder(slurped) 
 
-          def output = builder.toPrettyString()
+          def content = builder.toPrettyString() */
+   
+   
    
           print output
-          
-          slurper = null
-          slurped=null
-          builder = null
+
           currentFile=null
    
-
-
-     }
-     basedir=null
-     files=null
-     currentFile=null
-     
-
-     def list1 = [ "/tmp/test1", "/tmp/test2" ]
-     def list2 = [ "aa" , "bb" ]
-
-     n=0
-     for (filename in list1) { 
-          
           node(node_name) {
-          
-               writeFile file: filename, text: list2[n]
-      
+               writeFile file: filename, text: textContent
           }
-          n++ ;
      }
 }
 
