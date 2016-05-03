@@ -93,6 +93,10 @@ def copy_files_to_node(node_name,folder)  {
      files = basedir.listFiles()
 
      for (currentFile in files) { 
+           print currentFile.name
+     }
+     
+     for (currentFile in files) { 
           println "  Copying $currentFile"                
 
           //File f = new File(currentFile)
