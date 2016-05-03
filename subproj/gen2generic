@@ -66,18 +66,14 @@ stage 'Build'
    }
 
 stage 'Deploy'
-   copy_files_to_node('CTF',service_deploy_input_files_folder)
-   deploy_service('AMIBuilder',service_deploy_input_files_folder)
-   
+     copy_files_to_node_workspace('CTF',service_deploy_input_files_folder)
+     node(AMIBuilder) {
+          deploy_service('AMIBuilder',service_deploy_input_files_folder)
+     }
+
+
 
 def deploy_service(slave,files_folder) {
-   // new File("${workspace}/cd_deploy_input.json").write(cd_deploy_input_json)
-   
-/*
-   print "$cd_deploy_input_json"
-   sh "echo $cd_deploy_input_json > ${workspace}/deploy_input.json"
-   sh "cat ${workspace}/deploy_input.json"
-   
 
    sh "sudo chef-client -z -j /home/ec2-user/avreg/deploy_avreg.json -r 'recipe[ec2::deployService]' --log_level info"
 
@@ -85,7 +81,11 @@ def deploy_service(slave,files_folder) {
 
 }
 
-def copy_files_to_node(node_name,folder)  {
+
+
+
+
+def copy_files_to_node_workspace(node_name,folder)  {
      
      def basedir = new File(folder)
 
