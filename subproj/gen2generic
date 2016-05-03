@@ -95,7 +95,7 @@ def copy_files_to_node(node_name,folder)  {
      for (currentFile in files) { 
           println "  Copying $currentFile"                
 
-          //File f = new File(currentFile)
+      /*    //File f = new File(currentFile)
           def jsonText = currentFile.getText()
 
           def slurper = new JsonSlurper()
@@ -115,7 +115,7 @@ def copy_files_to_node(node_name,folder)  {
           node(node_name) {
                writeFile file: '/tmp/test.json', text: output
       
-          }
+          }*/
 
      }
      basedir=null
