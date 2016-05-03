@@ -81,12 +81,12 @@ def copy_files_to_node_workspace(node_name,folder)  {
           def fileName=f.name
           f=null
 
-     /*     def slurper = new JsonSlurper()
+          def slurper = new JsonSlurper()
           slurped = slurper.parseText( jsonText )
           slurped.service.artifact_url="sdfskkkkddddd"
           def builder = new JsonBuilder(slurped) 
 
-          def content = builder.toPrettyString() */
+          def content = builder.toPrettyString() 
 
           currentFile=null
    
