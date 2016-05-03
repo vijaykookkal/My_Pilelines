@@ -23,12 +23,23 @@ def cd_node_deploy="AMIBuilder"
 
 def lc = new com.hp.wpp.cd.pipelines.libcommon()
 
+def iAmHere() {
+	[29.20090, 12.90391]
+}
+
+def (coordX, coordY) = iAmHere()
+
+assert coordX == 29.20090
+
+assert coordY == 12.90391
+
+ 
 
 stage 'Build'
      node(cd_node_build) {
-          def (service_version,service_build_sha1) = lc.checkOut("$service_git_credentialsId","$service_git_url","$service_pom_version_tag")
-          echo "Service Version is $service_version . Sha1 is $service_build_sha1"
-          lc.mvnBuild("${cd_mvn_home}/bin/mvn","$service_version")
+          //def (service_version,service_build_sha1) = lc.checkOut("$service_git_credentialsId","$service_git_url","$service_pom_version_tag")
+          //echo "Service Version is $service_version . Sha1 is $service_build_sha1"
+          //lc.mvnBuild("${cd_mvn_home}/bin/mvn","$service_version")
      }
 
 stage 'Deploy'
