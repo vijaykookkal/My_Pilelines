@@ -25,7 +25,7 @@ stage 'Build'
      node('CTF') {
           service_version = lc.checkOut("$service_git_credentialsId","$service_git_url","$service_pom_version_tag")
           echo "$service_version"
-          lc.mvnBuild("${cd_mvn_home}/bin/mvn","$service_version")
+         // lc.mvnBuild("${cd_mvn_home}/bin/mvn","$service_version")
      }
 
 stage 'Deploy'
