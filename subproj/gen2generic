@@ -25,8 +25,8 @@ def lc = new com.hp.wpp.cd.pipelines.libcommon()
 
 stage 'Build'
      node(cd_node_build) {
-          service_version = lc.checkOut("$service_git_credentialsId","$service_git_url","$service_pom_version_tag")
-          echo "$service_version"
+          [service_version,service_build_sha1] = lc.checkOut("$service_git_credentialsId","$service_git_url","$service_pom_version_tag")
+          echo "Service Version is $service_version . Sha1 is $service_build_sha1"
           lc.mvnBuild("${cd_mvn_home}/bin/mvn","$service_version")
      }
 
