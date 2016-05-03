@@ -17,7 +17,7 @@ def service_pom_version_tag='avreg.version'
 def service_name="avreg"
 def service_version="1.0.13"
 def service_cookbook_version="1.0.13"
-def service_deploy_input_file="/home/kookalko/pipeline/services/avreg/service_deploy_input.json"
+def service_deploy_input_files_folder=/home/kookalko/pipeline/services/avreg
 def service_cd_deploy_input_file="/home/kookalko/pipeline/services/avreg/service_cd_deploy_input.json"
 
 
@@ -66,15 +66,9 @@ stage 'Build'
    }
 
 stage 'Deploy'
-   def service_deploy_input_file_content = readFile service_deploy_input_file
-   node('AMIBuilder') {
-       def workspace = pwd()
-       echo "Workspace is ${workspace}"
-       writeFile file: {workspace}/service_cd_deploy_input.json, text: service_deploy_input_file_content
-       
-       git credentialsId: "$cd_git_credentialsId", url: "$cd_git_url"
-       deploy_service(workspace,service_cd_deploy_input_json,service_deploy_input_json)
-   }
+   copy_files_to_node('AMIBuilder',service_deploy_input_files_folder)
+   deploy_service('AMIBuilder',service_deploy_input_files_folder)
+   
 
 def deploy_service(workspace,cd_deploy_input_json,deploy_input_json) {
    // new File("${workspace}/cd_deploy_input.json").write(cd_deploy_input_json)
@@ -91,7 +85,7 @@ def deploy_service(workspace,cd_deploy_input_json,deploy_input_json) {
 
 }
 
-def json_input(node_name,src_file,dest_file)  {
+def copy_files_to_node(node_name,files_folder)  {
 
    File f = new File(src_file)
    def jsonText = f.getText()
