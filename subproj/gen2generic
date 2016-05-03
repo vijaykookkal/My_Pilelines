@@ -17,22 +17,24 @@ def service_deploy_input_files_folder="/home/kookalko/pipeline/services/avreg"
 def cd_git_url='https://github.com/WPPg2/DevOps-Deployment.git'
 def cd_git_credentialsId='7a9d9c98-fec1-4a3c-82ff-53295d9d5c9b'
 def cd_mvn_home="/opt/apache-maven-3.2.5"
+def cd_node_build="CTF"
+def cd_node_deploy="AMIBuilder"
 
 def lc = new com.hp.wpp.cd.pipelines.libcommon()
 
 
 stage 'Build'
-     node('CTF') {
+     node(cd_node_build) {
           service_version = lc.checkOut("$service_git_credentialsId","$service_git_url","$service_pom_version_tag")
           echo "$service_version"
          // lc.mvnBuild("${cd_mvn_home}/bin/mvn","$service_version")
      }
 
 stage 'Deploy'
-     lc.copy_files_to_node_workspace('CTF',service_deploy_input_files_folder)
+     lc.copy_files_to_node_workspace(cd_node_deploy,service_deploy_input_files_folder)
      
-     node(AMIBuilder) {
-          lc.deploy_service('AMIBuilder',service_deploy_input_files_folder)
+     node(cd_node_deploy) {
+          lc.deploy_service()
      }
 
 
