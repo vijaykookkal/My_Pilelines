@@ -110,10 +110,6 @@ def copy_files_to_node(node_name,folder)  {
           def builder = new JsonBuilder(slurped) 
 
           def content = builder.toPrettyString() */
-   
-   
-   
-          print output
 
           currentFile=null
    
