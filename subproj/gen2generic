@@ -91,11 +91,11 @@ def copy_files_to_node(node_name,folder)  {
 
 
      files = basedir.listFiles()
-     def currentFile
+
      for (currentFile in files) { 
           println "  Copying $currentFile"                
 
-          File f = new File($currentFile)
+          File f = new File(currentFile)
           def jsonText = f.getText()
 
           def slurper = new JsonSlurper()
