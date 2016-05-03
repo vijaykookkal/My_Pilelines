@@ -51,7 +51,7 @@ def deploy_service(slave,files_folder) {
 
    sh "sudo chef-client -z -j /home/ec2-user/avreg/deploy_avreg.json -r 'recipe[ec2::deployService]' --log_level info"
 
-   sh "cat /home/ec2-user/avreg.log.ipaddr" */
+   sh "cat /home/ec2-user/avreg.log.ipaddr" 
 
 }
 
