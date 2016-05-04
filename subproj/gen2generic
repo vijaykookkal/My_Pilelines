@@ -13,6 +13,8 @@ def service_pom_version_tag = "avreg.version"
 
 
 print "${env.serviceName}"
+print env.serviceName
+print serviceName
 
 
 def service_version
