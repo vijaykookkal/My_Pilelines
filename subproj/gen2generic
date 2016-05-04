@@ -17,12 +17,17 @@ wppGlobal.setGlobalVariables()
 def service_git_url='https://github.com/WPPg2/avatar-reg.git'
 def service_git_credentialsId='7a9d9c98-fec1-4a3c-82ff-53295d9d5c9b'
 def service_deploy_input_files_folder="/home/kookalko/pipeline/services/avreg"
-def service_pom_version_tag = "avreg.version"
+//def service_pom_version_tag = "avreg.version"
 
 
+def serviceName = "avreg"
+
+def serviceConfig = readFile file: "${wppGlobal.cd_service_config_path}/${serviceName}"
+def service_pom_version_tag = getServiceConfig(serviceConfig,"service.pom_version_tag") 
+print service_pom_version_tag
 
 
-print serviceName
+//print serviceName
 
 
 def service_version
@@ -52,8 +57,13 @@ stage 'Deploy'
 
 
 
-
-
+def getServiceConfig(jsonText,param)  {
+     def slurper = new JsonSlurper()
+     slurped = slurper.parseText( jsonText )
+     value = slurped."$param"
+     slurper = null
+     slurped = null
+}
 
 
 
