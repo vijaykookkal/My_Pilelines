@@ -25,23 +25,9 @@ def service_version
 def service_build_sha1
 def lc = new com.hp.wpp.cd.pipelines.libcommon()
 
-/*acme.foo = "5";
-acme.foo2 = ""
-acme.foo3 = ""
-echo acme.foo; // print 5
 
-acme.say "Joe" // print "Hello world, Joe"
-acme.setFoo "10"
-echo acme.foo; // print 5
 
-echo acme.foo2
-echo acme.foo3*/
-
-//wpp_global.foo2 = ""
-//wpp_global.setFoo "10"
-//echo wpp_global.foo2
-
-wpp_global.cd_git_url=""
+//wpp_global.cd_git_url=""
 wpp_global.setGlobalVariables()
 echo  wpp_global.cd_git_url
 
