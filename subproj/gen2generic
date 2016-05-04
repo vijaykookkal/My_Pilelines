@@ -12,7 +12,7 @@ def service_pom_version_tag = "avreg.version"
 
 
 
-
+print "${env.serviceName}"
 
 
 def service_version
@@ -28,7 +28,7 @@ wppGlobal.setGlobalVariables()
 
 
 
-
+/*
 stage 'Build'
      node(cd_node_build) {
           service_version = lc.checkOut("$service_git_credentialsId","$service_git_url","$service_pom_version_tag")
@@ -45,7 +45,7 @@ stage 'Deploy'
 
 
 
-
+*/
 
 
 
