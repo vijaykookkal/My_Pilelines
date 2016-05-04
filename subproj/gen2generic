@@ -23,16 +23,14 @@ def cd_node_deploy="AMIBuilder"
 
 def service_version
 def service_build_sha1
+
+
+// Global Library: functions
 def lc = new com.hp.wpp.cd.pipelines.wppLibCommon()
 
 
-
-// Set Global Variables for WPP
+// Global Library: Variables for WPP
 wppGlobal.setGlobalVariables()
-echo  wppGlobal.cd_git_url
-
-
-
 
 
 
