@@ -27,9 +27,10 @@ def lc = new com.hp.wpp.cd.pipelines.libcommon()
 
 acme.foo = "5";
 echo acme.foo; // print 5
-acme.setFoo()
-echo acme.foo2
+
 acme.say "Joe" // print "Hello world, Joe"
+acme.setFoo "10"
+echo acme.foo2
 
 //print acme.bar ;
 //print acme.car ;
