@@ -23,7 +23,7 @@ def cd_node_deploy="AMIBuilder"
 
 def service_version
 def service_build_sha1
-def lc = new com.hp.wpp.cd.pipelines.libcommon()
+def lc = new com.hp.wpp.cd.pipelines.wppLibCommon()
 
 
 
