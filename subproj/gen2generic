@@ -1,7 +1,4 @@
-import groovy.json.JsonBuilder
 import groovy.json.JsonSlurper
-
-
 
 // WPP Global Library: functions
 def lc = new com.hp.wpp.cd.pipelines.wppLibCommon()
@@ -26,6 +23,8 @@ def service_build_sha1
 
 
 print service_pom_version_tag
+print service_git_url 
+print service_git_credentialsId
 
 
 
