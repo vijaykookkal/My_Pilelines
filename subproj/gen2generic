@@ -20,6 +20,8 @@ def service_git_credentialsId = slurper.parseText(serviceConfig).service.git_cre
 def service_version
 def service_build_sha1
 
+// Set Non Serializable variables to null
+slurper=null
 
 
 print service_pom_version_tag
@@ -45,22 +47,6 @@ stage 'Deploy'
 
 
 
-
-
-def getServiceConfig(jsonText,param)  {
-
-     def slurper = new JsonSlurper()
-     slurped = slurper.parseText( jsonText )
-     print "json text is $jsonText"
-     print "param is $param"
-     print slurped.service.name
-     print slurped.service.pom_version_tag
-     value = slurped."$param"
-     slurper = null
-     slurped = null
-     print "param is $value"
-     return value
-}
 
 
 
