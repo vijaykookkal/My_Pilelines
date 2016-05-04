@@ -27,9 +27,9 @@ def lc = new com.hp.wpp.cd.pipelines.libcommon()
 
 
 
-//wpp_global.cd_git_url=""
-wpp_global.setGlobalVariables()
-echo  wpp_global.cd_git_url
+
+wppGlobal.setGlobalVariables()
+echo  wppGlobal.cd_git_url
 
 //print wpp_global.my_var
 
