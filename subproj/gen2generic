@@ -26,7 +26,7 @@ def service_build_sha1
 def lc = new com.hp.wpp.cd.pipelines.libcommon()
 
 acme.foo = "5";
-def acme.foo2
+acme.foo2 = ""
 echo acme.foo; // print 5
 
 acme.say "Joe" // print "Hello world, Joe"
