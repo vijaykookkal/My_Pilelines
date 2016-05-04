@@ -39,7 +39,7 @@ echo acme.foo3*/
 
 
 wpp_global.cd_git_url=""
-wpp_global.init_global_vars()
+wpp_global.init_global_vars ""
 echo  wpp_global.cd_git_url
 
 //print wpp_global.my_var
