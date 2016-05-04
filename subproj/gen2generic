@@ -62,9 +62,12 @@ def getServiceConfig(jsonText,param)  {
 
      def slurper = new JsonSlurper()
      slurped = slurper.parseText( jsonText )
+     print "json text is $jsonText"
+     print "param is $param"
      value = slurped."$param"
      slurper = null
      slurped = null
+     print "param is $value"
      return value
 }
 
