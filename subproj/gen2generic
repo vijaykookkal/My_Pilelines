@@ -25,6 +25,7 @@ def service_version
 def service_build_sha1
 def lc = new com.hp.wpp.cd.pipelines.libcommon()
 
+wpp_global.my_var="ggg"
 print wpp_global.my_var
 
 
