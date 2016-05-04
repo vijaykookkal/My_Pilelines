@@ -11,31 +11,21 @@ def lc = new com.hp.wpp.cd.pipelines.wppLibCommon()
 wppGlobal.setGlobalVariables()
 
 
-// Service Variables
-
-
-def service_git_url='https://github.com/WPPg2/avatar-reg.git'
-def service_git_credentialsId='7a9d9c98-fec1-4a3c-82ff-53295d9d5c9b'
-def service_deploy_input_files_folder="/home/kookalko/pipeline/services/avreg"
-//def service_pom_version_tag = "avreg.version"
-
-
-def serviceName = "avreg"
-
+// Read Config File to get Service variables
 def serviceConfig = new File("${wppGlobal.cd_service_config_path}/${serviceName}/service.json").text
+def slurper = new JsonSlurper()
 
-def service_pom_version_tag = getServiceConfig(serviceConfig,"service.pom_version_tag") 
-print service_pom_version_tag
-
-
-//print serviceName
-
-
+// Service specific variables
+def serviceName = "avreg"
+def service_pom_version_tag = slurper.parseText(serviceConfig).service.pom_version_tag
+def service_git_url = slurper.parseText(serviceConfig).service.git_url
+def service_git_credentialsId = slurper.parseText(serviceConfig).service.git_credentialsId
 def service_version
 def service_build_sha1
 
 
 
+print service_pom_version_tag
 
 
 
