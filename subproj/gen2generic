@@ -7,29 +7,23 @@ import groovy.json.JsonSlurper
 
 def service_git_url='https://github.com/WPPg2/avatar-reg.git'
 def service_git_credentialsId='7a9d9c98-fec1-4a3c-82ff-53295d9d5c9b'
-
-
-
-
 def service_deploy_input_files_folder="/home/kookalko/pipeline/services/avreg"
 def service_pom_version_tag = "avreg.version"
 
-def cd_git_url='https://github.com/WPPg2/DevOps-Deployment.git'
-def cd_git_credentialsId='7a9d9c98-fec1-4a3c-82ff-53295d9d5c9b'
-def cd_mvn_home="/opt/apache-maven-3.2.5"
-def cd_node_build="CTF"
-def cd_node_deploy="AMIBuilder"
+
+
+
 
 
 def service_version
 def service_build_sha1
 
 
-// Global Library: functions
+// WPP Global Library: functions
 def lc = new com.hp.wpp.cd.pipelines.wppLibCommon()
 
 
-// Global Library: Variables for WPP
+// wPP Global Library: Variables 
 wppGlobal.setGlobalVariables()
 
 
