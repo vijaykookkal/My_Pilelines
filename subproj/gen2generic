@@ -27,21 +27,21 @@ def lc = new com.hp.wpp.cd.pipelines.libcommon()
 
 
 
-
+// Set Global Variables for WPP
 wppGlobal.setGlobalVariables()
 echo  wppGlobal.cd_git_url
 
-//print wpp_global.my_var
 
 
 
- /*
+
+
 
 stage 'Build'
      node(cd_node_build) {
           service_version = lc.checkOut("$service_git_credentialsId","$service_git_url","$service_pom_version_tag")
           echo "Service Version is $service_version . "
-          lc.mvnBuild("${cd_mvn_home}/bin/mvn","$service_version")
+          lc.mvnBuild("${wppGlobal.cd_mvn_home}/bin/mvn","$service_version")
      }
 
 stage 'Deploy'
@@ -52,7 +52,7 @@ stage 'Deploy'
      }
 
 
-*/
+
 
 
 
