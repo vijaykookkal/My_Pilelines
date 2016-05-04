@@ -64,6 +64,8 @@ def getServiceConfig(jsonText,param)  {
      slurped = slurper.parseText( jsonText )
      print "json text is $jsonText"
      print "param is $param"
+     print slurped.service.name
+     print slurped.service.pom_version_tag
      value = slurped."$param"
      slurper = null
      slurped = null
