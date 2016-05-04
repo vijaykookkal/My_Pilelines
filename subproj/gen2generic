@@ -42,7 +42,7 @@ echo acme.foo3*/
 //echo wpp_global.foo2
 
 wpp_global.cd_git_url=""
-wpp_global.init_global_vars ""
+wpp_global.setGlobalVariables ""
 echo  wpp_global.cd_git_url
 
 //print wpp_global.my_var
