@@ -2,6 +2,15 @@ import groovy.json.JsonBuilder
 import groovy.json.JsonSlurper
 
 
+
+// WPP Global Library: functions
+def lc = new com.hp.wpp.cd.pipelines.wppLibCommon()
+
+
+// WPP Global Library: Variables 
+wppGlobal.setGlobalVariables()
+
+
 // Service Variables
 
 
@@ -12,8 +21,7 @@ def service_pom_version_tag = "avreg.version"
 
 
 
-print "${env.serviceName}"
-print env.serviceName
+
 print serviceName
 
 
@@ -21,18 +29,12 @@ def service_version
 def service_build_sha1
 
 
-// WPP Global Library: functions
-def lc = new com.hp.wpp.cd.pipelines.wppLibCommon()
-
-
-// WPP Global Library: Variables 
-wppGlobal.setGlobalVariables()
 
 
 
 
 stage 'Build'
-     node(cd_node_build) {
+     node(wppGlobal.cd_node_build) {
           service_version = lc.checkOut("$service_git_credentialsId","$service_git_url","$service_pom_version_tag")
           echo "Service Version is $service_version . "
           lc.mvnBuild("${wppGlobal.cd_mvn_home}/bin/mvn","$service_version")
@@ -41,7 +43,7 @@ stage 'Build'
 stage 'Deploy'
      lc.copy_files_to_node_workspace(cd_node_deploy,service_deploy_input_files_folder)
      
-     node(cd_node_deploy) {
+     node(wppGlobal.cd_node_deploy) {
           lc.deploy_service()
      }
 
