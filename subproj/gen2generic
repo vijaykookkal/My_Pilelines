@@ -30,6 +30,8 @@ echo acme.foo; // print 5
 
 acme.say "Joe" // print "Hello world, Joe"
 acme.setFoo "10"
+echo acme.foo; // print 5
+
 echo acme.foo2
 
 //print acme.bar ;
