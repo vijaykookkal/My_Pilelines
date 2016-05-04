@@ -21,8 +21,11 @@ def service_deploy_input_files_folder="/home/kookalko/pipeline/services/avreg"
 
 
 def serviceName = "avreg"
-
-def serviceConfig = readFile file: "${wppGlobal.cd_service_config_path}/${serviceName}"
+print "aaaaab"
+//def serviceConfig = readFile file: "${wppGlobal.cd_service_config_path}/${serviceName}/service/json"
+def serviceConfig = readFile file: "/home/kookalko/pipeline/services/avreg/service.json"
+print serviceConfig 
+print "bbbbbbbbb"
 def service_pom_version_tag = getServiceConfig(serviceConfig,"service.pom_version_tag") 
 print service_pom_version_tag
 
