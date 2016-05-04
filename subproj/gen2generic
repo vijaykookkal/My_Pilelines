@@ -29,7 +29,7 @@ acme.foo = "5";
 echo acme.foo; // print 5
 acme.say "Joe" // print "Hello world, Joe"
 
-print acme.bar ;
+//print acme.bar ;
 print acme.car ;
 //wpp_global.my_var="ggg"
 //print wpp_global.my_var
