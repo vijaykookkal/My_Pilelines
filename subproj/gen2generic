@@ -13,7 +13,7 @@ def serviceConfig = new File("${wppGlobal.cd_service_config_path}/${serviceName}
 def slurper = new JsonSlurper()
 
 // Service specific variables
-def serviceName = "avreg"
+// def serviceName = "avreg"
 def service_pom_version_tag = slurper.parseText(serviceConfig).service.pom_version_tag
 def service_git_url = slurper.parseText(serviceConfig).service.git_url
 def service_git_credentialsId = slurper.parseText(serviceConfig).service.git_credentialsId
