@@ -11,6 +11,16 @@ def lc = new com.hp.wpp.cd.pipelines.wppLibCommon()
 wppGlobal.setGlobalVariables()
 
 
+// Interactive Input
+def userInput = input(
+ id: 'userInputs', message: 'Enter input', parameters: [
+ [$class: 'TextParameterDefinition', defaultValue: 'service1', description: 'Service Name', name: 'serviceName'],
+ [$class: 'TextParameterDefinition', defaultValue: 'env1', description: 'Environment', name: 'environment']
+]) 
+def serviceName=userInput['serviceName']
+def environment=userInput['environment']
+
+
 // Read Config File to get Service variables
 def serviceConfig = new File("${wppGlobal.cd_service_config_path}/${serviceName}/service.json").text
 def slurper = new JsonSlurper()
