@@ -56,7 +56,7 @@ stage 'Deploy'
      node(wppGlobal.cd_node_deploy) {
           lc.deploy_service()
      }
-
+f
 
 
 
